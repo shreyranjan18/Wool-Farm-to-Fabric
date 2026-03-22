@@ -9,7 +9,9 @@ class WoolifyWebSocket {
 
     connect() {
         try {
-            this.socket = new WebSocket('ws://localhost:8080');
+            // Check if a global WS_URL is defined (for production), otherwise fallback to localhost
+            const wsUrl = window.WS_URL || 'ws://localhost:8080';
+            this.socket = new WebSocket(wsUrl);
             
             this.socket.onopen = () => {
                 console.log('Connected to WebSocket server');

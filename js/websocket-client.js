@@ -1,5 +1,5 @@
 class WoolifyWebSocket {
-    constructor(url = 'ws://localhost:8080') {
+    constructor(url = window.WS_URL || 'ws://localhost:8080') {
         this.url = url;
         this.socket = null;
         this.subscriptions = new Set();

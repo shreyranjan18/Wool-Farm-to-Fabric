@@ -15,6 +15,13 @@ $title = isset($pageTitle) ? htmlspecialchars($pageTitle) . ' - Woolify' : 'Wool
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
+    
+    <!-- Inject WebSocket URL from environment -->
+    <script>
+        <?php if (getenv('WS_URL')): ?>
+        window.WS_URL = "<?php echo getenv('WS_URL'); ?>";
+        <?php endif; ?>
+    </script>
     <!-- Favicon example (replace with your actual favicon) -->
     <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
     
